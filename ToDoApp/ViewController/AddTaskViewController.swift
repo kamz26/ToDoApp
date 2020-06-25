@@ -20,6 +20,7 @@ class AddTaskViewController: AppBaseViewController {
     
     //MARK: - Variable
     var selectedTask:Task?
+    var imagePicker:ImagePicker!
     
     
     override func viewDidLoad() {
@@ -55,19 +56,20 @@ class AddTaskViewController: AppBaseViewController {
             taskTitleLabel.text = selectedTask.taskTitle
             return
         }
-        taskDescriptionLabel.text = ""
+        
         taskTitleLabel.text = ""
+        taskDescriptionLabel.text = ""
+//        textviewWithImage()
         
     }
     
     
-    fileprivate func textviewWithImage(){
-        let attributedString = NSMutableAttributedString(string: "iOSdevCenters")
+    fileprivate func textviewWithImage(image:UIImage){
+        let attributedString = taskDescriptionLabel.attributedText
         let textAttachment = NSTextAttachment()
-        textAttachment.image = UIImage(named: "iOSDevCenter.png")
+        textAttachment.image = image
         let attrStringWithImage = NSAttributedString(attachment: textAttachment)
-        attributedString.replaceCharacters(in: NSMakeRange(2, 1), with: attrStringWithImage)
-        taskDescriptionLabel.attributedText = attributedString
+        taskDescriptionLabel.textStorage.insert(attrStringWithImage, at: taskDescriptionLabel.selectedRange.location)
       
     }
     
@@ -134,6 +136,14 @@ class AddTaskViewController: AppBaseViewController {
         
     }
     
+    @IBAction func addImageAction(_ sender: UIButton) {
+        
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        self.imagePicker.present(from: sender)
+    }
+    
+    
+    
     
 }
 
@@ -191,4 +201,16 @@ extension AddTaskViewController{
         let selectedRange = taskDescriptionLabel.selectedRange
         taskDescriptionLabel.scrollRangeToVisible(selectedRange)
     }
+}
+
+extension AddTaskViewController:ImagePickerDelegate{
+    func didSelect(image: UIImage?) {
+        if image != nil{
+            if let resizedImage = image!.resized(toWidth: 50){
+               self.textviewWithImage(image: resizedImage)
+                
+            }
+        }
+    }
+    
 }

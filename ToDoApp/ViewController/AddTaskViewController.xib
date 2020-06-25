@@ -41,13 +41,23 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c2M-uc-vOG">
-                                    <rect key="frame" x="20" y="97.5" width="374" height="490.5"/>
+                                    <rect key="frame" x="20" y="97.5" width="374" height="327"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhV-z4-TVi">
+                                    <rect key="frame" x="147" y="444.5" width="120" height="22"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title=" Add Image " image="photo" catalog="system">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addImageAction:" destination="-1" eventType="touchUpInside" id="v2I-nJ-icB"/>
+                                    </connections>
+                                </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IIz-1l-pGq">
                                     <rect key="frame" x="20" y="738" width="374" height="50"/>
                                     <subviews>
@@ -81,11 +91,13 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
+                                <constraint firstItem="yhV-z4-TVi" firstAttribute="top" secondItem="c2M-uc-vOG" secondAttribute="bottom" constant="20" id="AOv-kd-e9C"/>
                                 <constraint firstItem="c2M-uc-vOG" firstAttribute="top" secondItem="1UT-sz-bpx" secondAttribute="bottom" constant="30" id="AtY-Vj-Ivn"/>
                                 <constraint firstItem="1UT-sz-bpx" firstAttribute="leading" secondItem="p4Z-Hd-D5N" secondAttribute="leading" constant="20" id="CSh-GR-AVw"/>
                                 <constraint firstItem="IIz-1l-pGq" firstAttribute="leading" secondItem="c2M-uc-vOG" secondAttribute="leading" id="DZK-v1-VNo"/>
                                 <constraint firstItem="c2M-uc-vOG" firstAttribute="trailing" secondItem="1UT-sz-bpx" secondAttribute="trailing" id="Px6-ul-i5d"/>
-                                <constraint firstItem="c2M-uc-vOG" firstAttribute="height" secondItem="p4Z-Hd-D5N" secondAttribute="height" multiplier="0.6" id="T19-A3-BCd"/>
+                                <constraint firstItem="c2M-uc-vOG" firstAttribute="height" secondItem="p4Z-Hd-D5N" secondAttribute="height" multiplier="0.4" id="T19-A3-BCd"/>
+                                <constraint firstItem="yhV-z4-TVi" firstAttribute="centerX" secondItem="p4Z-Hd-D5N" secondAttribute="centerX" id="ZAq-v0-wCt"/>
                                 <constraint firstAttribute="bottom" secondItem="IIz-1l-pGq" secondAttribute="bottom" priority="100" constant="30" id="aab-eh-J6a"/>
                                 <constraint firstItem="c2M-uc-vOG" firstAttribute="leading" secondItem="1UT-sz-bpx" secondAttribute="leading" id="d4Q-y8-uiX"/>
                                 <constraint firstAttribute="trailing" secondItem="1UT-sz-bpx" secondAttribute="trailing" constant="20" id="kdu-Vo-p9V"/>
@@ -117,4 +129,7 @@
             <point key="canvasLocation" x="139" y="128"/>
         </view>
     </objects>
+    <resources>
+        <image name="photo" catalog="system" width="64" height="46"/>
+    </resources>
 </document>

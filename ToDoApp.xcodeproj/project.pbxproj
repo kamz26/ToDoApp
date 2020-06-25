@@ -24,6 +24,7 @@
 		61B63E2124A3BB8D00FBA4E8 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B63E1F24A3BB8D00FBA4E8 /* TodoTableViewCell.swift */; };
 		61B63E2224A3BB8D00FBA4E8 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B63E2024A3BB8D00FBA4E8 /* TodoTableViewCell.xib */; };
 		61B63E2424A3C10600FBA4E8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B63E2324A3C10600FBA4E8 /* CoreDataManager.swift */; };
+		61B9162A24A4F0ED00C3C032 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9162924A4F0ED00C3C032 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		61B63E1F24A3BB8D00FBA4E8 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		61B63E2024A3BB8D00FBA4E8 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		61B63E2324A3C10600FBA4E8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		61B9162924A4F0ED00C3C032 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				61B63E1024A399F600FBA4E8 /* Extension.swift */,
 				61B63E2324A3C10600FBA4E8 /* CoreDataManager.swift */,
+				61B9162924A4F0ED00C3C032 /* ImagePicker.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				61B63E1124A399F600FBA4E8 /* Extension.swift in Sources */,
 				61B63DF824A397EA00FBA4E8 /* SceneDelegate.swift in Sources */,
 				61B63E2424A3C10600FBA4E8 /* CoreDataManager.swift in Sources */,
+				61B9162A24A4F0ED00C3C032 /* ImagePicker.swift in Sources */,
 				61B63E0024A397EA00FBA4E8 /* ToDoApp.xcdatamodeld in Sources */,
 				61B63E1D24A3A34A00FBA4E8 /* AppBaseViewController.swift in Sources */,
 				6166D66224A3D5D8008FB492 /* AddTaskViewController.swift in Sources */,
@@ -353,12 +357,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8F835L88D7;
 				INFOPLIST_FILE = ToDoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ToDoApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ToDoApp.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,12 +375,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8F835L88D7;
 				INFOPLIST_FILE = ToDoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ToDoApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ToDoApp.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
