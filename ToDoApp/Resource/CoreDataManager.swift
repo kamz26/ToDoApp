@@ -39,7 +39,7 @@ class CoreDataManager {
         }
         let taskEntity = Task(context: selfViewContext)
         taskEntity.taskTitle = taskData["title"] as? String
-        taskEntity.taskDescription = taskData["description"] as? String
+        taskEntity.taskDescription = taskData["description"] as? Data
         taskEntity.taskIsSelected = taskData["isSelected"] as? Bool ?? false
         taskEntity.taskId = taskData["taskId"] as? String
         saveContext()
@@ -74,14 +74,11 @@ class CoreDataManager {
             let test = try selfViewContext.fetch(fetchRequest)
             
             let objectUpdate = test[0] as! NSManagedObject
+            objectUpdate.setValue(taskData["title"] as! String , forKey: "taskTitle")
+            objectUpdate.setValue(taskData["description"] as! Data, forKey: "taskDescription")
             objectUpdate.setValue(taskData["isSelected"] as! Bool, forKey: "taskIsSelected")
-            do{
-                try selfViewContext.save()
-            }
-            catch
-            {
-                print(error)
-            }
+            objectUpdate.setValue(taskData["taskId"], forKey: "taskId")
+            saveContext()
         }
         catch
         {

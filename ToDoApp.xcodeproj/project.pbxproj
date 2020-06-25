@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6166D66224A3D5D8008FB492 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6166D66024A3D5D8008FB492 /* AddTaskViewController.swift */; };
 		6166D66324A3D5D8008FB492 /* AddTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6166D66124A3D5D8008FB492 /* AddTaskViewController.xib */; };
+		6166D66924A3F4A8008FB492 /* iOSDevCenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 6166D66824A3F4A8008FB492 /* iOSDevCenter.png */; };
 		61B63DF624A397EA00FBA4E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B63DF524A397EA00FBA4E8 /* AppDelegate.swift */; };
 		61B63DF824A397EA00FBA4E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B63DF724A397EA00FBA4E8 /* SceneDelegate.swift */; };
 		61B63DFA24A397EA00FBA4E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B63DF924A397EA00FBA4E8 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		6166D66024A3D5D8008FB492 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		6166D66124A3D5D8008FB492 /* AddTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskViewController.xib; sourceTree = "<group>"; };
+		6166D66824A3F4A8008FB492 /* iOSDevCenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOSDevCenter.png; sourceTree = "<group>"; };
 		61B63DF224A397EA00FBA4E8 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B63DF524A397EA00FBA4E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61B63DF724A397EA00FBA4E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		61B63DF424A397EA00FBA4E8 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				6166D66824A3F4A8008FB492 /* iOSDevCenter.png */,
 				61B63E1E24A3BB6500FBA4E8 /* Cell */,
 				61B63E0F24A399B600FBA4E8 /* Resource */,
 				61B63E0C24A398CA00FBA4E8 /* ViewController */,
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61B63E1B24A39ECA00FBA4E8 /* TodoListViewController.xib in Resources */,
+				6166D66924A3F4A8008FB492 /* iOSDevCenter.png in Resources */,
 				6166D66324A3D5D8008FB492 /* AddTaskViewController.xib in Resources */,
 				61B63E0524A397ED00FBA4E8 /* LaunchScreen.storyboard in Resources */,
 				61B63E0224A397ED00FBA4E8 /* Assets.xcassets in Resources */,

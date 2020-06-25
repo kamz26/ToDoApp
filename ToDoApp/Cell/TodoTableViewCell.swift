@@ -33,7 +33,7 @@ class TodoTableViewCell: UITableViewCell {
     
     func configureTask(task:Task)  {
         self.titleLabel.text = task.taskTitle
-        self.descriptionLabel.text = task.taskDescription
+        self.descriptionLabel.attributedText = NSData(data: task.taskDescription!).toAttributedString()
         if task.taskIsSelected{
             selectionBtn.layer.borderWidth = 1
             selectionBtn.layer.borderColor = UIColor.white.cgColor

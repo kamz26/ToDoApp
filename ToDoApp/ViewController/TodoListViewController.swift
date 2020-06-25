@@ -97,10 +97,11 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource{
             self?.updateList(task: task!)
             
         }
-        
-        
-        return cell
+       return cell
     }
+    
+    
+    
     
     func updateList(task:Task){
         
