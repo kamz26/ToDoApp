@@ -18,6 +18,10 @@ class AddTaskViewController: AppBaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     
+    //MARK: - Variable
+    var selectedTask:Task?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -40,6 +44,19 @@ class AddTaskViewController: AppBaseViewController {
         
         cancelBtn.layer.cornerRadius = 5
         doneBtn.layer.cornerRadius = 5
+        populateData()
+        
+    }
+    
+    fileprivate func populateData(){
+        
+        if let selectedTask = selectedTask{
+            taskDescriptionLabel.attributedText = NSData(data: selectedTask.taskDescription!).toAttributedString()
+            taskTitleLabel.text = selectedTask.taskTitle
+            return
+        }
+        taskDescriptionLabel.text = ""
+        taskTitleLabel.text = ""
         
     }
     
@@ -85,7 +102,11 @@ class AddTaskViewController: AppBaseViewController {
                 }])
              return
         }
-        saveTask()
+        if selectedTask == nil{
+            saveTask()
+        }else{
+            updateTask()
+        }
     }
     
     fileprivate func  saveTask(){
@@ -94,8 +115,21 @@ class AddTaskViewController: AppBaseViewController {
         dict["description"] = taskDescriptionLabel.attributedText.toNSData()
         dict["isSelected"] = false
         dict["taskId"] = UUID().uuidString
-        
+       
         CoreDataManager.sharedManager.saveTask(taskData: dict)
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    fileprivate func updateTask(){
+        
+        var dict:  [String: Any] = [:]
+        dict["title"] = taskTitleLabel.text ?? ""
+        dict["description"] = taskDescriptionLabel.attributedText.toNSData()
+        dict["isSelected"] = selectedTask!.taskIsSelected
+        dict["taskId"] = selectedTask!.taskId ?? ""
+        
+        CoreDataManager.sharedManager.updateTask(taskData: dict)
         self.navigationController?.popViewController(animated: true)
         
     }

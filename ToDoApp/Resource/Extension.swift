@@ -57,6 +57,11 @@ extension UIViewController {
     
     
 }
+extension String{
+    func trimSpaces() -> String {
+        return self.trimmingCharacters(in: .whitespaces)
+    }
+}
 
 extension UIView {
     

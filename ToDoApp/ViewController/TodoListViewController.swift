@@ -13,9 +13,12 @@ class TodoListViewController: AppBaseViewController {
     
     //MARK: - IBOutlet
     @IBOutlet weak var todoListTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
+    
+    //MARK: - Variables
     var taskDataList: [Task] = []
-    
+    var filteredTaskDataList: [Task] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,14 +35,19 @@ class TodoListViewController: AppBaseViewController {
     
     fileprivate func fetchListData(){
         self.taskDataList =  CoreDataManager.sharedManager.fetchTask()
+        self.filteredTaskDataList = self.taskDataList
         todoListTableView.reloadAsync()
     }
     
     fileprivate func viewSetup(){
         todoListTableView.register(cellType: TodoTableViewCell.self)
         
+        
         todoListTableView.delegate = self
         todoListTableView.dataSource = self
+        searchBar.delegate = self
+        
+//        searchTextfield.delegate = self
     }
     
     
@@ -84,23 +92,28 @@ extension TodoListViewController{
     
 }
 
-extension TodoListViewController: UITableViewDelegate, UITableViewDataSource{
+extension TodoListViewController: UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.taskDataList.count
+        return self.filteredTaskDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(with: TodoTableViewCell.self, for: indexPath)
-        cell.configureTask(task: self.taskDataList[indexPath.row])
+        cell.configureTask(task: self.filteredTaskDataList[indexPath.row])
         cell.buttonPressed = { [weak self] in
-            let task = self?.taskDataList[indexPath.row]
+            let task = self?.filteredTaskDataList[indexPath.row]
             self?.updateList(task: task!)
             
         }
        return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = AddTaskViewController.initFromNib()
+        vc.selectedTask = self.filteredTaskDataList[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     func updateList(task:Task){
@@ -114,9 +127,21 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource{
         self.fetchListData()
         self.todoListTableView.reloadAsync()
         
-        
     }
     
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredTaskDataList = searchText.isEmpty ? taskDataList : taskDataList.filter({(task: Task) -> Bool in
+            
+            return task.taskTitle!.range(of: searchText, options: .caseInsensitive) != nil
+        })
+        todoListTableView.reloadData()
+    }
     
 }
+
+    
+    
+    
+
+

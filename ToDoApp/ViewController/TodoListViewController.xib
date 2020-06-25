@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodoListViewController" customModule="ToDoApp" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="jw0-CH-OBt" id="I4Q-2E-aQS"/>
                 <outlet property="todoListTableView" destination="0UO-Ns-3ZP" id="XNH-pM-aC4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,13 +25,18 @@
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-Ns-3ZP">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <searchBar key="tableHeaderView" contentMode="redraw" id="jw0-CH-OBt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="0UO-Ns-3ZP" secondAttribute="trailing" id="K6F-d6-gWD"/>
+                        <constraint firstItem="0UO-Ns-3ZP" firstAttribute="top" secondItem="h10-4f-bgH" secondAttribute="top" id="RcB-et-kBo"/>
                         <constraint firstAttribute="bottom" secondItem="0UO-Ns-3ZP" secondAttribute="bottom" id="Wiy-bo-Sfx"/>
-                        <constraint firstItem="0UO-Ns-3ZP" firstAttribute="top" secondItem="h10-4f-bgH" secondAttribute="top" id="fWX-wW-cKB"/>
                         <constraint firstItem="0UO-Ns-3ZP" firstAttribute="leading" secondItem="h10-4f-bgH" secondAttribute="leading" id="lE0-jZ-IqA"/>
                     </constraints>
                 </view>
