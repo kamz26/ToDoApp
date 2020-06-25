@@ -115,6 +115,18 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource,UIS
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            let task = self.filteredTaskDataList[indexPath.row]
+            CoreDataManager.sharedManager.delete(task: task)
+            self.fetchListData()
+        }
+        return [delete]
+    }
+    
     
     func updateList(task:Task){
         

@@ -87,6 +87,28 @@ class CoreDataManager {
         
     }
     
+    func delete(task:Task){
+        
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
+        fetchRequest.predicate = NSPredicate(format: "taskId = %@", task.taskId as! String)
+        
+        do
+        {
+            let test = try selfViewContext.fetch(fetchRequest)
+            
+            let objectToDelete = test[0] as! NSManagedObject
+            selfViewContext.delete(objectToDelete)
+            saveContext()
+            
+        }
+        catch
+        {
+            print(error)
+        }
+    }
+    
+    
     
     func saveContext () {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
